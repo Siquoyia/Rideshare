@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rideshare import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('', contacts_views.list_contacts, name='list_contacts'),
+    path("", views.home, name='home')
 ]
 

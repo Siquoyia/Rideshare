@@ -1,7 +1,3 @@
-{% extends "subpage.django" %}
-
-
-{% block content %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v = "urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -29,6 +25,7 @@
     <!--[if IE 9]>
       <script type="text/javascript" src="./resources/jim/javascript/PIE_IE9.js"></script>
     <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="./resources/external_tools.js"></script>
   </head>
   <body class="review offline showComments noScenarios" tabindex="0">
@@ -322,12 +319,12 @@
     <!-- START COMMENT TEMPLATES -->
     <script type="text/x-jquery-tmpl" id="root-template">
             <![CDATA[
-            <div class="root {{? it.isRead === false}}unread{{?}} closed firer rounded-border">
-                <input type="hidden" id="parentCode" value="{{=it.code}}" />
-                <input type="hidden" id="canvasID" value="{{=it.canvasID}}" />
-                <input type="hidden" id="elementID" value="{{=it.elementID}}" />
-                <input type="hidden" id="canvasURL" value="{{=it.canvasURL}}" />
-                {{=annotation.render(it, "comment-template")}}
+            <div class="root [[? it.isRead === false]]unread[[?]] closed firer rounded-border">
+                <input type="hidden" id="parentCode" value="[[=it.code]]" />
+                <input type="hidden" id="canvasID" value="[[=it.canvasID]]" />
+                <input type="hidden" id="elementID" value="[[=it.elementID]]" />
+                <input type="hidden" id="canvasURL" value="[[=it.canvasURL]]" />
+                [[=annotation.render(it, "comment-template")]]
                 <div class="replies"></div>
                 <div class="replier">
                 	<div class="commentsTextAreaWrapper">
@@ -358,34 +355,34 @@
             <![CDATA[
             <div class="replySeparator"></div>
             <div class="comment">
-                <input type="hidden" id="userID" value="{{=it.authorID}}" />
-                <input type="hidden" id="code" value="{{=it.code}}" />
-                <input type="hidden" id="timestamp" value="{{=it.timestamp}}" />
+                <input type="hidden" id="userID" value="[[=it.authorID]]" />
+                <input type="hidden" id="code" value="[[=it.code]] />
+                <input type="hidden" id="timestamp" value="[[=it.timestamp]]" />
                 <div class="comment-content">
-                    <div class="user-comment-img{{? annotation.hasPermission(it.author)}} firer{{?}} {{? annotation.hasPicture()}}userImage{{?}}" {{? annotation.hasPermission(it.author) && !annotation.hasPicture()}}{{?? true}}style="background-image:url('../../../../images/pictures/{{=it.authorID}}.png')"{{?}}></div>
-                    {{? annotation.hasPermission(it.author)}}<span class="user-comment-img-add user_picture_more firer{{? annotation.hasPicture()}} hidden{{?}}"></span>{{?}}
+                    <div class="user-comment-img[[? annotation.hasPermission(it.author)]] firer[[]] [[? annotation.hasPicture(]]userImage[[]]" [[? annotation.hasPermission(it.author) && !annotation.hasPicture(]][[?? tru]]style="background-image:url('../../../../images/pictures/[[=it.authorI]].png')"[[]]></div>
+                    [[? annotation.hasPermission(it.author]]<span class="user-comment-img-add user_picture_more firer[[? annotation.hasPicture(]] hidden[[]]"></span>[[]]
                     <div class="user-comment-content">
-                        <span class="author brandableText" title="{{=it.author}}">{{=it.author}}</span>
-                        <span class="date">{{=it.date}}</span>
+                        <span class="author brandableText" title="[[=it.autho]]">[[=it.autho]]</span>
+                        <span class="date">[[=it.dat]]</span>
                         <div class="viewmode">
-                            <div class="text">{{=annotation.toHTML(it.content)}}</div>
-                            {{? it.fileName !== "" }}{{? annotation.isImage(it.fileName)}}<img src="" class="attachment firer brandableText" onclick="annotation.getAttachmentFile({{=it.code}}, '{{=it.fileID}}');" title="{{=it.fileName}}"></img>{{?? true}}<div class="attachment-wrap"><span class="attachment-img"></span><span class="attachment filename firer brandableText" onclick="annotation.getAttachmentFile({{=it.code}}, '{{=it.fileID}}');" title="{{=it.fileName}}">{{=it.fileName}}</span></div>{{?}}{{?}}
-                            {{? annotation.hasPermission(it.author) }}<div class="edit-delete-own-comment"><span class="edit edit_topic firer">Edit</span><span class="delete delete_topic firer">Delete</span></div>{{?}}
+                            <div class="text">[[=annotation.toHTML(it.content]]</div>
+                            [[? it.fileName !== ""]][[? annotation.isImage(it.fileName]]<img src="" class="attachment firer brandableText" onclick="annotation.getAttachmentFile([[=it.cod]], '[[=it.fileI]]');" title="[[=it.fileNam]]"></img>[[?? tru]]<div class="attachment-wrap"><span class="attachment-img"></span><span class="attachment filename firer brandableText" onclick="annotation.getAttachmentFile([[=it.cod]], '[[=it.fileI]]');" title="[[=it.fileNam]]">[[=it.fileNam]]</span></div>[[]][[]]
+                            [[? annotation.hasPermission(it.author)]]<div class="edit-delete-own-comment"><span class="edit edit_topic firer">Edit</span><span class="delete delete_topic firer">Delete</span></div>[[]]
                             <div class="actions">
                                 <div class="reply firer"><span class="reply-img"></span><a class="action">Reply</a></div>
                             </div>
-                            {{? it.parentCode === null || it.parentCode === 0}}
+                            [[? it.parentCode === null || it.parentCode === ]]
                             	<div class="expand-btn firer">
                             		<div class="total-wrap"><span class="total-img comments"></span><span class="total"></span></div>
                             		<div class="comments-expand-separator"></div>
                             		<span class="expand-btn-img expand"></span>
                             	</div>
-                        	{{?}}
+                        	[[]]
                             <div class="clear"></div>
                         </div>
                         <div class="editormode">
                 			<div class="commentsTextAreaWrapper">
-                            	<textarea class="annotation firer">{{=it.content}}</textarea><div class="attWrapper"><div class="attachment-file-float"><span></span><div class="attachment-file-delete firer"></div></div></div>
+                            	<textarea class="annotation firer">[[=it.conten]]</textarea><div class="attWrapper"><div class="attachment-file-float"><span></span><div class="attachment-file-delete firer"></div></div></div>
                             </div>
                             <div class="actions">
                                 <form class="attachment firer" enctype="multipart/form-data" method="post">
@@ -406,24 +403,24 @@
         </script>
         <script type="text/x-jquery-tmpl" id="message-template">
                       <![CDATA[
-                      {{? it.type === "error" }}
+                      [[? it.type === "error"]]
                       <div class="message error">
                         <div class="container">
                           <span class="warning"></span>
-                          <div class="notice">{{? it.title }}<strong>{{=it.title}}</strong>{{?}}{{=it.text}}</div>
+                          <div class="notice">[[? it.title]]<strong>[[=it.titl]]</strong>[[]][[=it.tex]]</div>
                           <strong class="close">x</strong>
                         </div>
                       </div>
-                      {{?? it.type === "feedback"}}
+                      [[?? it.type === "feedback]]
                       <div class="message feedback">
                         <div class="container">
                           <span class="warning"></span>
-                          <div class="notice">{{=it.text}}</div>
+                          <div class="notice">[[=it.text]]</div>
                           <button type="button" class="ok firer" tabindex="-1">Yes</button>
                           <button type="button" class="cancel firer" tabindex="-1">No</button>
                         </div>
                       </div>
-                      {{?}}
+                      [[]]
                       ]]>
     </script>
     <!-- END COMMENT TEMPLATES -->
@@ -431,6 +428,3 @@
     <script type="text/javascript">(function(){jimMain.init("screens/40aff3bb-b182-482c-ad7b-257996d393bb");})();</script>
   </body>
 </html>
-{% endif %}
-{# need to add object.id to dialog in javascript #}
-{% endblock  %}

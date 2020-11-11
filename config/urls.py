@@ -19,7 +19,16 @@ from rideshare import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', contacts_views.list_contacts, name='list_contacts'),
+    #path('', contacts_views.list_rideshare, name='list_rideshare'),
     path("", views.home, name='home')
+    #path('rideshares/add/',rideshares_views.add_rideshare,name='add_rideshare'),
+    #path('rideshares/<int:pk>/edit/',
+         #rideshares_views.edit_rideshare,
+         #name='edit_rideshare'),
+    #path('rideshares/<int:pk>/delete/',
+         #rideshares_views.delete_contact,
+         #name='delete_rideshare'),
+    #path('rideshares/<int:pk/', rideshares_views.rideshare_detail, name='rideshare_detail')     
+
 ]
 

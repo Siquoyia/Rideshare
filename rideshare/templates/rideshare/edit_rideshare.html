@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Ride</h1>
+
+<div>
+  <form action="{% url 'edit_rideshare' pk=contact.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">Update Ride</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rideshare import views
+from rideshare import views as rideshare_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', contacts_views.list_rideshare, name='list_rideshare'),
-    path("", views.home, name='home')
-    #path('rideshares/add/',rideshares_views.add_rideshare,name='add_rideshare'),
+    path("", rideshare_views.home, name='home'),
+    path('rideshares/add/',rideshare_views.add_rideshare,name='add_rideshare'),
     #path('rideshares/<int:pk>/edit/',
          #rideshares_views.edit_rideshare,
          #name='edit_rideshare'),

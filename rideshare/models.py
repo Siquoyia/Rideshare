@@ -24,12 +24,20 @@ class RideShare(models.Model):
 class Destination(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     address = models.TextField(max_length=255,null=True, blank=True)
-    link = models.URLField()    
+
+    def __str__(self):
+        return self.address   
     
 class Passenger(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     address = models.TextField(max_length=255,null=True, blank=True)
+    
+    def __str__(self):
+        return self.name 
 
 class Driver(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     vehicle_description = models.CharField(max_length=255,null=True, blank=True)
+
+    def __str__(self):
+        return self.name

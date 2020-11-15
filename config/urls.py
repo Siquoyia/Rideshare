@@ -23,7 +23,7 @@ urlpatterns = [
     path("", rideshare_views.home, name='home'),
     path('rideshares/add/',rideshare_views.add_rideshare,name='add_rideshare'),
     #path('rideshares/<int:pk>/edit/',
-         #rideshares_views.edit_rideshare,
+         #rideshare_views.edit_rideshare,
          #name='edit_rideshare'),
     #path('rideshares/<int:pk>/delete/',
          #rideshares_views.delete_contact,

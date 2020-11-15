@@ -1,5 +1,5 @@
 from django import forms
-from .models import RideShare, Passenger, Driver
+from .models import RideShare, Passenger, Driver, Destination
 
 
 class RideShareForm(forms.ModelForm):
@@ -10,11 +10,12 @@ class RideShareForm(forms.ModelForm):
             'number_of_passengers',
             'driver',
             'destination',
+            'date_and_time',
         ]
 
-#class NoteForm(forms.ModelForm):
-     #class Meta:
-         #model = Note
-         #fields = [
-             #'text',
-         #]
+#class PassengerForm(forms.ModelForm):
+    #class Meta:
+        #model = Passenger
+        #fields = [
+            #'date_and_time',
+        #]

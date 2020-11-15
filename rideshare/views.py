@@ -29,3 +29,27 @@ def add_rideshare(request):
 
     return render(request, "rideshare/home.html", {"form": form})
 
+def edit_rideshare(request):
+    rideshare = RideShare.objects.all()
+    if request.method == 'GET':
+        form = RideShareForm(instance=rideshare)
+    else:
+        form = RideShareForm(data=request.POST, instance=rideshare)
+        if form.is_valid():
+            form.save()
+            return redirect(to='home')
+
+    return render(request, "rideshares/edit_rideshare.html", {
+        "form": form,
+        "rideshare": rideshare
+    })
+
+
+def delete_rideshare(request, pk):
+    rideshare = get_object_or_404(RideShare, pk=pk)
+    if request.method == 'POST':
+        rideshare.delete()
+        return redirect(to='list_rideshares')
+
+    return render(request, "rideshares/delete_rideshare.html",
+                  {"rideshare": rideshare})

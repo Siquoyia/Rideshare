@@ -4,12 +4,12 @@
 <h1>Delete Ride</h1>
 
 <div>
-  <form action="{% url 'delete_contact' pk=contact.pk %}" method="POST">
+  <form action="{% url 'delete_rideshare' pk=rideshare.pk %}" method="POST">
     {% csrf_token %}
-    <p>Are you sure you want to delete {{ contact.name }}?</p>
+    <p>Are you sure you want to delete {{ rideshare.name }}?</p>
     <div>
       <button type="submit">Delete Ride</button><br />
-      <a href="{% url 'list_rideshare' %}">Cancel</a>
+      <a href="{% url 'add_rideshare' %}">Cancel</a>
     </div>
   </form>
 </div>

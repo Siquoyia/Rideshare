@@ -1,12 +1,8 @@
 from datetime import datetime
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-PASSENGER_CHOICES = (
-  (1,1),
-  (2,2),
-  (3,3),
-)  
 
 
 
@@ -16,10 +12,11 @@ class RideShare(models.Model):
 
     passenger = models.ForeignKey("Passenger",on_delete=models.CASCADE,related_name="rideshares")
     driver = models.ForeignKey("Driver",on_delete=models.CASCADE, related_name="rideshares")
-    schedule = models.DateTimeField(default=datetime.now)
+    date_and_time = models.DateTimeField(default=datetime.now)
     is_complete = models.BooleanField(default=False)
-    number_of_passengers = models.CharField(max_length=1,choices=PASSENGER_CHOICES)
+    number_of_passengers = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
     destination = models.ForeignKey("Destination",on_delete=models.CASCADE,related_name="rideshares")
+    
 
 class Destination(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
@@ -31,6 +28,7 @@ class Destination(models.Model):
 class Passenger(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     address = models.TextField(max_length=255,null=True, blank=True)
+    #date_and_time =models.TextField(max_length=255,null=True, blank=True)
     
     def __str__(self):
         return self.name 

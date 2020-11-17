@@ -1,15 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Schedule Now</h1>
+
+<h1> Welcome to ComuRide </h1>
+<h2>Schedule Now</h2>
+<p>Community rideshare for elderly and low income individuals for daily transportation needs for free!<br>
+    Elderly people and people who recieve state or government assistance qualifies.<br> 
+    Book your ride now!<br>
+
+</p>
+
+
+
 
 <div>
-  <form action='/' method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-      <button type="submit">Schedule Now</button>
-    </div>
-  </form>
+  
+      <a href="{% url 'add_rideshare' %}"><button>Schedule Now</button></a>
+      
+    
+ 
 </div>
+
+
 {% endblock %}

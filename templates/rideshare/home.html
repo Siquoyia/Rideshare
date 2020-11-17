@@ -14,14 +14,11 @@
 
 
 <div>
-  <form action='/' method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-      <button type="submit">Schedule Now</button>
+  
+      <a href="{% url 'add_rideshare' %}"><button>Schedule Now</button></a>
       
-    </div>
-  </form>
+    
+ 
 </div>
 
 

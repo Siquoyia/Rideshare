@@ -2,24 +2,27 @@
 
 {% block content %}
 
-<h1> Welcome to ComuRide </h1>
-<h2>Schedule Now</h2>
-<p>Community rideshare for elderly and low income individuals for daily transportation needs for free!<br>
-    Elderly people and people who recieve state or government assistance qualifies.<br> 
-    Book your ride now!<br>
-
-</p>
-
-
-
-
-<div>
+<header class="sans-serif">
+  <div class="cover bg-left bg-center-l" style="background-image: url(static/rideshare/pictures/TulsaCR.jpg)">
+    <div class="bg-black-80 pb5 pb6-m pb7-l">
+      <nav class="dt w-100 mw8 center"> 
+        <div class="dtc w2 v-mid pa3">
+        </div>
+        
+      </nav> 
+      <div class="tc-l mt4 mt5-m mt6-l ph3">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Welcome to Commuride</h1>
+        <h2 class="fw1 f3 white-80 mt3 mb4">The Rideshare App for the community </h2>
+        <a href="{% url 'add_rideshare' %}"><button class="button is-link">Schedule Now</button></a>
+        
+       
+      </div>
+    </div>
+  </div> 
+</header>
+<main>
   
-      <a href="{% url 'add_rideshare' %}"><button>Schedule Now</button></a>
-      
-    
- 
-</div>
 
 
+</main>
 {% endblock %}

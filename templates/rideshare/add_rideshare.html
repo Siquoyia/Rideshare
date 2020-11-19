@@ -4,7 +4,7 @@
 
 
 <div>
-  <form action="{% url 'add_rideshare' %}" method="POST">
+  <form action="{% url 'add_rideshare' %}" method="POST" class="f6 b db mb2" >
     {% csrf_token %}
     {{ form.as_p }}
     <div>

@@ -11,6 +11,7 @@ class RideShareForm(forms.ModelForm):
             'driver',
             'destination',
             'date_and_time',
+            'phone_number',
         ]
 
 #class PassengerForm(forms.ModelForm):

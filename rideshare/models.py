@@ -16,7 +16,7 @@ class RideShare(models.Model):
     is_complete = models.BooleanField(default=False)
     number_of_passengers = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
     destination = models.ForeignKey("Destination",on_delete=models.CASCADE,related_name="rideshares")
-    
+    phone_number = models.CharField(max_length=255,null=True, blank=True)
 
 class Destination(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
@@ -36,6 +36,6 @@ class Passenger(models.Model):
 class Driver(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     vehicle_description = models.CharField(max_length=255,null=True, blank=True)
-
+    email = models.EmailField(max_length=254)
     def __str__(self):
         return self.name

@@ -36,6 +36,6 @@ class Passenger(models.Model):
 class Driver(models.Model):
     name = models.CharField(max_length=255,null=True, blank=True)
     vehicle_description = models.CharField(max_length=255,null=True, blank=True)
-
+    email = models.EmailField(max_length=254)
     def __str__(self):
         return self.name

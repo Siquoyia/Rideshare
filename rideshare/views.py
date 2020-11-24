@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.mail import send_mail
 from .models import RideShare
 from .forms import RideShareForm
 from rideshare import views as rideshare_views
+
+
 
 
 # Create your views here.
@@ -25,7 +28,12 @@ def add_rideshare(request):
     else:
         form = RideShareForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            rideshare = form.save()
+            send_mail("Someone's booked a ride with you",
+            f"{rideshare.passenger} has booked a ride with you to {rideshare.destination} contact them at {rideshare.phone_number}", 
+            "commuride@gmail.com", 
+            ["commuride@gmail.com"])
+
             return redirect(to='booked_rideshare')
 
     return render(request, "rideshare/add_rideshare.html", {"form": form})

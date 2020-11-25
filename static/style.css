@@ -5,32 +5,26 @@ body > footer {
     padding: 0 16px;
 }
 
-body > header {
-    background: #007340;
+body {
+    height: 100vh;
     box-shadow: 0 20px 50px -20px #007340;
     z-index: 1;
 }
 
 body > main {
-    background: pink;
-    background-image: url("static/rideshare/pictures/TulsaCR.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    height: 100vh;
+    
+} 
 
 
-body > footer {
-    background: #FD0;
-}
 
 .border-box {
     box-sizing: border-box;
 }
 
 .cover {
-    background-size: cover !important;
+    background-size: cover ;
+    height: 100% ;
 }
 
 .bg-left {
@@ -158,6 +152,7 @@ body > footer {
 
 .bg-black-80 {
     background-color: rgba(0, 0, 0, .8);
+    height: 100% ;
 }
 
 .bg-blue {
@@ -277,11 +272,11 @@ body > footer {
     transform: scale(.95);
 }
 
-@media screen and (min-width: 30em) {
+/* @media screen and (min-width: 30em) {
     .dib-ns {
         display: inline-block;
     }
-}
+} */
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
     .pb6-m {

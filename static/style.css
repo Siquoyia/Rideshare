@@ -328,3 +328,7 @@ body > main {
     background-size: cover;
   }
 
+form > p {
+ margin-top: 20px;
+ font-size: 24px;
+}

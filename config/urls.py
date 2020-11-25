@@ -20,7 +20,7 @@ from rideshare import views as rideshare_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('rideshares/list/', rideshare_views.list_rideshares, name='list_rideshares.html'),
+    path('rideshares/list/', rideshare_views.list_rideshares, name='list_rideshares.html'),
     path("", rideshare_views.home, name='home'),
     path('rideshares/add/',rideshare_views.add_rideshare,name='add_rideshare'),
     path('rideshares/booked/',rideshare_views.booked_ride,name='booked_rideshare'),

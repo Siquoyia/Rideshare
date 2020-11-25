@@ -7,10 +7,16 @@
 
 
 <div class="flex flex-wrap">
-  {% for rideshare in Rideshares %}
-  <div class="w-33 pa3">
-    <h2>{{ rideshare.title }}</h2>
+  {% for rideshare in rideshares.all %}
 
+  <div class="w-33 pa3">
+    <h2>{{ rideshare.passenger }} has requested a ride to {{ rideshare.destination }} from {{ rideshare.driver }}</h2>
+    <h2> <a href="sms:+1{{rideshare.phone_number}}">Text Rider</a>
+      </h2>
+    <h2> <a href="sms:+1{{driver.phone_number}}">Text Driver</a></h2>
+  </div>
+  {% endfor %}
+</div>
     
 
 

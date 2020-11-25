@@ -4,7 +4,8 @@
 
 
 <div>
-  <form action="{% url 'add_rideshare' %}" method="POST">
+  <h1 class="f2 f1-l fw2  black-90 mb0 lh-title">Book Your Commuride</h1>
+  <form action="{% url 'add_rideshare' %}" class="mt4"  method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <div>
